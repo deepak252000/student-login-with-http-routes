@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+</head>
+
+<body>
+    <h1>Edit Student</h1>
+    <form action="/students/<%= userId %>/<%= student.ScholarID %>/edit" method="POST">
+        <label for="FullName">Full Name:</label>
+        <input type="text" id="FullName" name="FullName" value="<%= student.FullName %>" required><br>
+
+        <label for="EmailAddress">Email:</label>
+        <input type="email" id="EmailAddress" name="EmailAddress" value="<%= student.EmailAddress %>" required><br>
+
+        <label for="PhoneNumber">Phone Number:</label>
+        <input type="text" id="PhoneNumber" name="PhoneNumber" value="<%= student.PhoneNumber %>" required><br>
+
+        <label for="Address">Address:</label>
+        <input type="text" id="Address" name="Address" value="<%= student.Address %>" required><br>
+
+        <label for="DateOfBirth">Date of Birth:</label>
+        <input type="date" id="DateOfBirth" name="DateOfBirth" value="<%= student.DateOfBirth %>" required><br>
+
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender" required>
+            <option value="Male" <%=student.Gender==='Male' ? 'selected' : '' %>>Male</option>
+            <option value="Female" <%=student.Gender==='Female' ? 'selected' : '' %>>Female</option>
+            <option value="Other" <%=student.Gender==='Other' ? 'selected' : '' %>>Other</option>
+        </select><br>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+
+</html>

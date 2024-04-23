@@ -1,0 +1,50 @@
+<!-- students.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Student List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach(student=> { %>
+                <tr>
+                    <td>
+                        <%= student.FullName %>
+                    </td>
+                    <td>
+                        <%= student.EmailAddress %>
+                    </td>
+                    <td>
+                        <%= student.PhoneNumber %>
+                    </td>
+                    <td>
+                        <a href="/students/<%= userId %>/<%= student.ScholarID %>/edit">Update</a>
+                        <form action="/students/<%= userId %>/<%= student.ScholarID %>/delete" method="POST"
+                            style="display: inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+    <a href="/students/add/<%= userId %>">Add Student</a>
+</body>
+
+</html>
